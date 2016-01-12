@@ -3,43 +3,26 @@
 /**
  * this show the messages in the page
  */
+
+include "header.php";
+
 session_start();
-?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        
-            <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-        <meta charset="UTF-8">
-        <title>Ivik Training</title>
-    
-    </head>
-    <body>
-  
-            <?php
+ 
             
-            
-                    foreach ($_SESSION['messages'] as $key => $message){
+        foreach ($_SESSION['messages'] as $key => $message){
                         
-                        echo "<article>";
-                        echo "<h1>". $message['title'] . "</h1>";
-                        echo "<p>". $message['content'] . "</p>";
-                        echo "</article>";
-                    }
+            echo "<div id=\"message\" class=\"list-group\">";
+            echo "<a href=\"show.php\" class=\"list-group-item\"><h4>". $message['title'] . "</h4></a>";
+            echo "<p>". $message['content'] . "</p>";
+            echo "</div>";
+            }
 
-            ?>
-        
-    </body>
-</html>
 
+include "footer.php"; 
+            
+?>
+ 
 
 
