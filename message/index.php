@@ -1,3 +1,11 @@
+<?php
+
+/**
+ * this show the messages in the page
+ */
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,8 +26,20 @@
     <body>
   
             <?php
-                echo "Hello world";
+            
+            
+                    foreach ($_SESSION['messages'] as $key => $message){
+                        
+                        echo "<article>";
+                        echo "<h1>". $message['title'] . "</h1>";
+                        echo "<p>". $message['content'] . "</p>";
+                        echo "</article>";
+                    }
+
             ?>
         
     </body>
 </html>
+
+
+
