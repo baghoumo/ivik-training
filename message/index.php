@@ -9,15 +9,23 @@ include "header.php";
 session_start();
 
 
- 
-            
-        foreach ($_SESSION['messages'] as $key){
+    
+if(empty($_SESSION)){
+    echo ' <div id="messageAlert" class="alert alert-danger" role="alert"><p> There are no messages !!! </p></div>';
+    }else{
+    
+    
+        foreach ($_SESSION['messages'] as $key => $message){
                         
-            echo "<div id=\"message\" class=\"list-group\">";
-            echo "<a href=\"show.php\" class=\"list-group-item\"><h4>". $key['title'] . "</h4></a>";
-            echo "<p>". $key['content'] . "</p>";
+            echo "<a  id=\"message\" href=\"show.php?id=$key\" class=\"list-group-item\">";
+            echo "<h4 class=\"list-group-item-heading\"> Title: " . $message['title'] . "</h4>";
+            echo "Content: ";
+            echo substr($message['content'], 0, 77);
             echo "</div>";
             }
+            
+          
+}
 
 
 include "footer.php"; 
