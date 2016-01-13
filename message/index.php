@@ -11,7 +11,7 @@ session_start();
 
     
 if(empty($_SESSION)){
-    echo ' <div id="messageAlert" class="alert alert-danger" role="alert"><p> There are no messages !!! </p></div>';
+    echo ' <div id="messageAlert" class=" text-center alert alert-danger" role="alert"><p> There are no messages !!! </p></div>';
     }else{
     
     
